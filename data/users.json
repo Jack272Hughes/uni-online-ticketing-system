@@ -1,0 +1,20 @@
+[
+  {
+    "name": "John Smith",
+    "email": "john.smith@email.com",
+    "password": "134563d4e440f0e418b0f382f23a2cf31af6d7f648ccfae989518345d779a3",
+    "type": "consumer"
+  },
+  {
+    "name": "Steve Jones",
+    "email": "steve.jones@email.com",
+    "password": "debe62ddaaf9f8b672167c7b65c778c934a89ca89329dcb82ca79d19e17d2",
+    "type": "agent"
+  },
+  {
+    "name": "Amy Sherman",
+    "email": "amy.sherman@email.com",
+    "password": "e0c4ff92772284d2999ceb257dbd35ada667e97a2083f1412d554043cad4ea",
+    "type": "venue_manager"
+  }
+]

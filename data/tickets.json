@@ -1,0 +1,14 @@
+[
+  {
+    "eventId": 12345,
+    "userEmail": "john.smith@email.com",
+    "price": 12.99,
+    "location": "B8"
+  },
+  {
+    "eventId": 12345,
+    "userEmail": "john.smith@email.com",
+    "price": 12.99,
+    "location": "C4"
+  }
+]
