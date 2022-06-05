@@ -42,7 +42,7 @@ public class SeatDisplay {
             }
         }
 
-        System.out.println(stringBuilder.toString());
+        System.out.println(stringBuilder);
     }
 
     private String getColouredSeat(SeatState seatState, String location) {
