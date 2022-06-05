@@ -9,6 +9,7 @@ import ots.database.FileDatabaseController;
 import ots.models.Event;
 import ots.models.User;
 import ots.models.seat.Seat;
+import ots.utils.FileParser;
 import ots.utils.JsonFileParser;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.Scanner;
 public class Application {
     private static final Scanner scanner = new Scanner(System.in);
 
-    private static final JsonFileParser fileParser = new JsonFileParser("/Users/Jack Hughes/Documents/Coding/uni-online-ticketing-system/data");
+    private static final FileParser fileParser = new JsonFileParser("/Users/Jack Hughes/Documents/Coding/uni-online-ticketing-system/data");
     private static final DatabaseController databaseController = new FileDatabaseController(fileParser);
 
     private static final LoginController loginController = new LoginController(databaseController);
@@ -59,12 +60,12 @@ public class Application {
     }
 
     private static void startTicketPurchase(User user) {
-        Event event = eventController.startEventSelection();
-        if (event == null) {
+        Optional<Event> event = eventController.startEventSelection();
+        if (event.isEmpty()) {
             return;
         }
 
-        List<Seat> selectedSeats = seatSelectionController.startSeatSelection(event);
-        ticketController.purchaseTickets(event, user, selectedSeats);
+        List<Seat> selectedSeats = seatSelectionController.startSeatSelection(event.get());
+        ticketController.purchaseTickets(event.get(), user, selectedSeats);
     }
 }

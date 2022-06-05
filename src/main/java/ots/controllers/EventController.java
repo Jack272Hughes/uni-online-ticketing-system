@@ -18,7 +18,7 @@ public class EventController {
         this.databaseController = databaseController;
     }
 
-    public Event startEventSelection() {
+    public Optional<Event> startEventSelection() {
         List<Event> events = databaseController.getEvents();
 
         System.out.println();
@@ -38,10 +38,10 @@ public class EventController {
         }
 
         if (shouldExit) {
-            return null;
+            return Optional.empty();
         }
 
-        return chosenEvent.get();
+        return chosenEvent;
     }
 
     private Optional<Event> getEventById(List<Event> events, String input) {
