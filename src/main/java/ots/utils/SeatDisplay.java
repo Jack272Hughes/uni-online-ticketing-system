@@ -15,6 +15,9 @@ public class SeatDisplay {
     private static final String WHITE = "\033[0;37m";
     private static final String RED = "\033[0;31m";
 
+    private static final int TOTAL_ROWS = 8;
+    private static final int TOTAL_COLUMNS = 8;
+
     private final RowMap rows;
     private final HashSet<String> selectedSeats = new HashSet<>();
 
@@ -27,12 +30,12 @@ public class SeatDisplay {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("\n    | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  |\n")
                      .append("---------------------------------------------");
-        for (int rowNum = 1; rowNum <= 8; rowNum++) {
+        for (int rowNum = 1; rowNum <= TOTAL_ROWS; rowNum++) {
             String rowLetter = Character.toString(rowNum + 64);
             stringBuilder.append("\n| ").append(rowLetter).append(" |");
 
             ColumnMap columnMap = rows.getColumnMap(rowLetter);
-            for (int columnNum = 1; columnNum <= 8; columnNum++) {
+            for (int columnNum = 1; columnNum <= TOTAL_COLUMNS; columnNum++) {
                 SeatState seatState = columnMap.getSeatState(columnNum);
                 String colouredSeat = getColouredSeat(seatState, rowLetter + columnNum);
                 stringBuilder.append(" ").append(colouredSeat).append(" |");
