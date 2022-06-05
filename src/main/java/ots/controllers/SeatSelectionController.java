@@ -33,6 +33,10 @@ public class SeatSelectionController {
             System.out.println("Please select a row and column (e.g. A1) or enter 'purchase' or 'exit':");
             choice = scanner.nextLine().strip();
 
+            if ("purchase".equalsIgnoreCase(choice) || "exit".equalsIgnoreCase(choice)) {
+                continue;
+            }
+
             Optional<Seat> optionalChosenSeat = validateChoice(event, choice);
 
             if (optionalChosenSeat.isEmpty()) {
