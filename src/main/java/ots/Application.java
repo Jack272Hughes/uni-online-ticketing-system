@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class Application {
     private static final Scanner scanner = new Scanner(System.in);
 
-    private static final FileParser fileParser = new JsonFileParser("/Users/Jack Hughes/Documents/Coding/uni-online-ticketing-system/data");
+    private static final FileParser fileParser = new JsonFileParser("/absolute/path/to/data/directory");
     private static final DatabaseController databaseController = new FileDatabaseController(fileParser);
 
     private static final LoginController loginController = new LoginController(databaseController);
